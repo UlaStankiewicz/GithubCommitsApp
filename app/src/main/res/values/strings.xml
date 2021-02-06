@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GithubApp</string>
+    <string name="press_here_to_continue">Press here to continue…</string>
+    <string name="welcome_in_the">Welcome in the</string>
+    <string name="back">Back</string>
+    <string name="search_repository">Search repository</string>
+    <string name="repository_name">Repository name</string>
+    <string name="last_repositories">Last repositories</string>
 </resources>

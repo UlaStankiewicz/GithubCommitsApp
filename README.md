@@ -12,7 +12,7 @@ The application does not require any complicated launch options, just build a pr
 
 ## What the app can do?
 
-- It allows a user to input a GitHub repository name in the following format: “<owner>/<repository>“, e.g. "krzysztofserocki/GithubCommitsApp
+- It allows a user to input a GitHub repository name in the following format: “<owner>/<repository>“, e.g. `krzysztofserocki/GithubCommitsApp`
 - When the repository name is provided, the app fetches and displays the following information about it using GitHub API:
   - repository ID,
   - repository name,

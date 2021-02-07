@@ -4,14 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import pl.kserocki.githubapp.R
-import pl.kserocki.githubapp.ui.details.SearchActivity
 
-abstract class BaseActivity(private val layoutRes: Int) : DaggerAppCompatActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutRes)
+        initializeUI()
     }
+
+    abstract fun initializeUI()
 
     override fun onBackPressed() {
         super.onBackPressed()

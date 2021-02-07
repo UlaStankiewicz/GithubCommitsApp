@@ -4,6 +4,17 @@
     <string name="welcome_in_the">Welcome in the</string>
     <string name="back">Back</string>
     <string name="search_repository">Search repository</string>
-    <string name="repository_name">Repository name</string>
+    <string name="owner_and_repository_name">Owner/Repository</string>
+    <string name="repository_name_2">Repo name:</string>
     <string name="last_repositories">Last repositories</string>
+    <string name="author">Author:</string>
+    <string name="owner">Owner:</string>
+    <string name="sha_value">SHA Value:</string>
+    <string name="message">Message:</string>
+    <string name="wrong_format">Wrong format of owner and repository</string>
+    <string name="empty_list">Empty list</string>
+    <string name="unknown">Unknown</string>
+    <string name="loading">Loading…</string>
+    <string name="error_occurred">Error occurred</string>
+    <string name="repository_not_found">Repository not found</string>
 </resources>

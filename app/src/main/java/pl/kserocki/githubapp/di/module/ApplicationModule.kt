@@ -2,14 +2,15 @@ package pl.kserocki.githubapp.di.module
 
 import android.app.Application
 import androidx.room.Room
-import com.github.leonardoxh.livedatacalladapter.LiveDataCallAdapterFactory
+import pl.kserocki.githubapp.db.callback.LiveDataCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import io.reactivex.annotations.NonNull
 import okhttp3.OkHttpClient
-import pl.kserocki.githubapp.api.GithubAPI
-import pl.kserocki.githubapp.api.dao.GithubRepoDao
-import pl.kserocki.githubapp.api.database.ApplicationDatabase
+import pl.kserocki.githubapp.db.api.GithubAPI
+import pl.kserocki.githubapp.db.dao.GithubCommitDao
+import pl.kserocki.githubapp.db.dao.GithubRepoDao
+import pl.kserocki.githubapp.db.database.ApplicationDatabase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -31,7 +32,7 @@ class ApplicationModule {
             .client(okHttpClient)
             .baseUrl("https://api.github.com")
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
+            .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()
     }
 
@@ -47,8 +48,10 @@ class ApplicationModule {
         return Room.databaseBuilder(
             application.applicationContext,
             ApplicationDatabase::class.java,
-            "GithubCommitsApp.db")
+            "GithubCommitsApp.db"
+        )
             .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
             .build()
     }
 
@@ -56,6 +59,12 @@ class ApplicationModule {
     @Singleton
     fun provideGithubRepoDao(@NonNull applicationDatabase: ApplicationDatabase): GithubRepoDao {
         return applicationDatabase.githubRepoDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideGithubCommitDao(@NonNull applicationDatabase: ApplicationDatabase): GithubCommitDao {
+        return applicationDatabase.githubCommitDao()
     }
 
 }

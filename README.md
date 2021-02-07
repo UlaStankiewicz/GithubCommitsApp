@@ -3,6 +3,7 @@
 ## What is it?
 
 It is a mobile application for the android platform, written in Kotlin.
+
 It's main task is to provide information about the GitHub user repository and its commits.
 
 ## How to run?
